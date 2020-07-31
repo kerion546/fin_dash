@@ -73,6 +73,10 @@ def transaction2():
 
     return render_template("transaction_2.html")
 
+@app.route('/transaction_3.html', methods=['GET'])
+def transaction3():
+    return render_template("invoice.html")
+
 @app.route('/login.html', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':

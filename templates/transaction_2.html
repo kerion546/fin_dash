@@ -44,6 +44,28 @@
   .v-data-table__wrapper {
     color: rgb(99, 99, 99);
   }
+  
+  .vdp-datepicker input {
+    width: calc(100% - 24px);
+    height: 40px;
+    padding: 0 10px;
+    font-size: 15px;
+    border: solid 2px rgb(240, 240, 240);
+    border-radius: 15px;
+    text-decoration: none;
+    outline: none;
+    appearance: none;
+    transition: all 200ms;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+  .vdp-datepicker__calendar {
+    position: relative !important; 
+  }
+  .v-stepper__label {
+      color: rgba(0,0,0,.87);
+      font-size: 0.5rem !important;
+  }
   </style>
 </head>
 
@@ -260,8 +282,6 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="static/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Yosuke Matsuzaki</h5>
           <li>
             <a href="index.html">
               <i class="fa fa-dashboard"></i>
@@ -462,26 +482,35 @@
                     <v-stepper-items>
                       <v-stepper-content step="1">
                         <div style="margin-bottom: 20px;">
-                          <v-col cols="8" style="margin: 0 auto;">
-                            <h5>1. 銘柄をお選びください</h5>
-                            <co-autocomplete v-model="value" :type="type" :placeholder="placeholder" :datalist="datalist" />                        
-                          </v-col>
-                          <v-col cols="8" style="margin: 0 auto;">
-                          <v-list
-                          v-for="(item, index) in brandSearch"
-                          >
-                            <v-list-item
-                            v-for="(val, key) in item"
-                            >
-                            <v-list-item-content width="120">
-                              <v-list-item-title v-text="enjadic[key]"></v-list-item-title>
-                            </v-list-item-content>
-                      
-                              <v-list-item-content>
-                                <v-list-item-title v-text="val"></v-list-item-title>
-                              </v-list-item-content>
-                            </v-list-item>
-                          </v-list>
+                          <v-col cols="12" style="margin: 0 auto;">
+                            <h5>1. 顧客を選択してください
+                            </h5>
+                            <v-card>
+                              <v-card-title>
+                                <v-text-field
+                                  v-model="custom_search"
+                                  label="Search"
+                                  single-line
+                                  hide-details
+                                ></v-text-field>
+                              </v-card-title>
+                              <v-data-table
+                                :headers="custom_headers"
+                                :items="custom_datalist"
+                                :search="custom_search"
+                              >
+                              <template v-slot:item.select="{{'{ item }'}}">
+                                <v-btn @click="changeCusValue(item)" small class="mx-1" style="background-color: cornflowerblue; color: #FFF;">
+                                  選択
+                                </v-btn>
+                              </template>
+                              <template v-slot:item.detail="{{'{ item }'}}">
+                                <v-btn small class="mx-1" style="background-color: red; color: #FFF;">
+                                  詳細
+                                </v-btn>
+                              </template>
+                            </v-data-table>
+                            </v-card>
                         </v-col>
                         <div style="text-align: center;">
                         <v-btn
@@ -513,6 +542,7 @@
                           </v-col>
                         <div style="text-align: center;">
                         <v-btn
+                          v-if="radioGroup!=null"
                           @click="e1 = 3"
                           color="info"
                         >
@@ -548,6 +578,7 @@
                         <v-btn
                           @click="e1 = 4"
                           color="info"
+                          v-if="cashfutures_text!=null"
                         >
                           次へ
                         </v-btn>
@@ -581,8 +612,8 @@
                                   :search="search"
                                 >
                                 <template v-slot:item.select="{{'{ item }'}}">
-                                  <v-btn small class="mx-1" style="background-color: cornflowerblue; color: #FFF;">
-                                    詳細
+                                  <v-btn @click="changeValue(item)" small class="mx-1" style="background-color: cornflowerblue; color: #FFF;">
+                                    選択
                                   </v-btn>
                                 </template>
                               </v-data-table>
@@ -593,6 +624,7 @@
                         <v-btn
                           @click="e1 = 5"
                           color="info"
+                          v-if="value!=''"
                         >
                           次へ
                         </v-btn>
@@ -609,73 +641,112 @@
                         <div style="margin-bottom: 20px;">
                           <v-col cols="12" style="margin: 0 auto;vertical-align: top;">
 
-                            <v-col cols="8" style="margin: 0 auto;">
-                              <h5>5. 期間を入力してください</h5>
+                            <v-col cols="12" style="margin: 0 auto;">
+                              <h5>5.注文条件を入力してください
+                              </h5>
 
-                              <v-radio-group v-model="term">
-                                <v-radio
-                                  v-for="n in termSelect"
-                                  :key="n"
-                                  :label="n"
-                                  :value="n"
+                              <v-simple-table>
+                                <template v-slot:default>
+                                  <thead>
+                                    <tr>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>数量</td>
+                                      <td>                            
+                                        <number-input-spinner
+                                        :min="0"
+                                        :max="100000"
+                                        :step="100"
+                                        :integer-only="true"
+                                        v-model="stockNum"
+                                      ></number-input-spinner>
+                                    売買単価 100
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                      <td>価格</td>
+                                      <td>
+                                        <v-radio-group row v-model="radioPrice">
+                                          <v-radio
+                                            v-for="n in radioPriceSelect"
+                                            :key="n"
+                                            :label="n"
+                                            :value="n"
+                                          >
+                                        </v-radio>
+                                        </v-radio-group>
+                                        <number-input-spinner
+                                        v-if="radioPrice=='指値'"
+                                        :min="0"
+                                        :max="10000000"
+                                        :step="1"
+                                        :integer-only="true"
+                                        v-model="stockPrice"
+                                      ></number-input-spinner>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>期間</td>
+                                      <td>
+                                        <v-radio-group row v-model="term">
+                                          <v-radio
+                                            v-for="n in termSelect"
+                                            :key="n"
+                                            :label="n"
+                                            :value="n"
+                                          >
+                                        </v-radio>
+                                        </v-radio-group>
+                                        <vuejs-datepicker @closed="pickerClosed" :language="ja" v-if="term=='期間指定'" :format="DatePickerFormat" v-model="datetime"></vuejs-datepicker>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>預り区分</td>
+                                      <td>
+                                        <v-radio-group row v-model="account">
+                                          <v-radio
+                                            v-for="n in accountSelect"
+                                            :key="n"
+                                            :label="n"
+                                            :value="n"
+                                          >
+                                        </v-radio>
+                                        </v-radio-group>
+
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </template>
+                              </v-simple-table>
+                              <v-container class="px-0" fluid>
+                                <v-checkbox
+                                  v-model="checkbox1"
+                                  label="インサイダー取引及び契約締結前交付書面の確認"
+                                ></v-checkbox>
+                                <v-checkbox
+                                v-model="checkbox2"
+                                label="SOR対象銘柄の説明済"
+                              ></v-checkbox>
+                              </v-container>
+                              <div style="text-align: center;">
+                                <v-btn
+                                v-if="checkbox1==true && checkbox2==true"
+                                @click="e1 = 6"
+                                large="true"
+                                color="info"
                                 >
-                              </v-radio>
-                              </v-radio-group>
-                              <vuejs-datepicker @closed="pickerClosed" :language="ja" v-if="term=='期間指定'" :format="DatePickerFormat" v-model="datetime"></vuejs-datepicker>
-                              <v-list
-                              v-for="(item, index) in brandSearch"
+                                取引申し込み確認画面へ
+                              </v-btn>
+                              <v-btn
+                                @click="e1 = 4"
                               >
-                                <v-list-item
-                                v-for="(val, key) in item"
-                                v-if="key=='name' || key=='now' || key=='previousDay'"
-                                >
-                                <v-list-item-content width="120">
-                                  <v-list-item-title v-text="enjadic[key]"></v-list-item-title>
-                                </v-list-item-content>
-                                  <v-list-item-content>
-                                    <v-list-item-title v-text="val"></v-list-item-title>
-                                  </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                <v-list-item-content width="120">
-                                  <v-list-item-title v-text="'注文内容'"></v-list-item-title>
-                                </v-list-item-content>
-                                  <v-list-item-content>
-                                    <v-list-item-title v-text="radioGroup"></v-list-item-title>
-                                  </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                  <v-list-item-content width="120">
-                                    <v-list-item-title v-text="'注文数量'"></v-list-item-title>
-                                  </v-list-item-content>
-                                    <v-list-item-content>
-                                      <v-list-item-title v-text="stockNum + '株'"></v-list-item-title>
-                                    </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                  <v-list-item-content width="120">
-                                    <v-list-item-title v-text="'価格'"></v-list-item-title>
-                                  </v-list-item-content>
-                                    <v-list-item-content>
-                                      <v-list-item-title>{{'{{radioPrice}}'}}<div v-if="radioPrice=='指値'">{{'{{stockPrice}}'}}円</div></v-list-item-title>
-                                    </v-list-item-content>
-                                </v-list-item>
-                              </v-list>
+                                戻る
+                              </v-btn>
+                              </div>
                             </v-col>
                           </v-col>
-                        <div style="text-align: center;">
-                        <v-btn
-                          @click="e1 = 6"
-                          color="info"
-                        >
-                          次へ
-                        </v-btn>
-                        <v-btn
-                        @click="e1 = 4"
-                      >
-                        戻る
-                      </v-btn>
-                        </div>
                         </div>
                       </v-stepper-content>
 
@@ -683,73 +754,129 @@
                         <div style="margin-bottom: 20px;">
                           <v-col cols="12" style="margin: 0 auto;vertical-align: top;">
 
-                            <v-col cols="8" style="margin: 0 auto;">
-                              <h5>6. 口座を入力してください</h5>
-                              
-                              <v-radio-group v-model="account">
-                                <v-radio
-                                  v-for="n in accountSelect"
-                                  :key="n"
-                                  :label="n"
-                                  :value="n"
-                                >
-                              </v-radio>
-                              </v-radio-group>
-                              <v-list
-                              v-for="(item, index) in brandSearch"
+                            <v-col cols="12" style="margin: 0 auto;">
+                              <h5>6.取引内容を確認し、取引実行ボタンを押してください</h5>
+                              <v-col>
+                                <v-card
+                                tile
                               >
-                                <v-list-item
-                                v-for="(val, key) in item"
-                                v-if="key=='name' || key=='now' || key=='previousDay'"
-                                >
-                                <v-list-item-content width="120">
-                                  <v-list-item-title v-text="enjadic[key]"></v-list-item-title>
-                                </v-list-item-content>
-                                  <v-list-item-content>
-                                    <v-list-item-title v-text="val"></v-list-item-title>
-                                  </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                <v-list-item-content width="120">
-                                  <v-list-item-title v-text="'注文内容'"></v-list-item-title>
-                                </v-list-item-content>
-                                  <v-list-item-content>
-                                    <v-list-item-title v-text="radioGroup"></v-list-item-title>
-                                  </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                  <v-list-item-content width="120">
-                                    <v-list-item-title v-text="'注文数量'"></v-list-item-title>
-                                  </v-list-item-content>
+                              <v-list disabled>
+                                <v-subheader style="background-color: cornflowerblue;color: #FFF; font-weight: 900;">1. 顧客</v-subheader>
+                                <v-list-item-group color="primary">
+                                  <v-list-item
+                                  dense
+                                  >
                                     <v-list-item-content>
-                                      <v-list-item-title v-text="stockNum + '株'"></v-list-item-title>
+                                      <v-list-item-title>氏名：山田太郎</v-list-item-title>
                                     </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                  <v-list-item-content width="120">
-                                    <v-list-item-title v-text="'価格'"></v-list-item-title>
-                                  </v-list-item-content>
+                                  </v-list-item>
+                                  <v-list-item
+                                  dense
+                                  >
                                     <v-list-item-content>
-                                      <v-list-item-title>{{'{{radioPrice}}'}}<div v-if="radioPrice=='指値'">{{'{{stockPrice}}'}}円</div></v-list-item-title>
+                                      <v-list-item-title>顧客番号：1234567</v-list-item-title>
                                     </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                  <v-list-item-content width="120">
-                                    <v-list-item-title v-text="'期間'"></v-list-item-title>
-                                  </v-list-item-content>
+                                  </v-list-item>
+                                  <v-list-item
+                                  dense
+                                  >
                                     <v-list-item-content>
-                                      <v-list-item-title>{{'{{term}}'}}<div v-if="term=='期間指定'">{{'{{datetime}}'}}</div></v-list-item-title>
+                                      <v-list-item-title>年齢：40</v-list-item-title>
                                     </v-list-item-content>
-                                </v-list-item>
+                                  </v-list-item>
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>資産合計：10,000,000円</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                </v-list-item-group>
+                                <v-subheader style="background-color: cornflowerblue;color: #FFF; font-weight: 900;">2. 買い？売り？</v-subheader>
+                                <v-list-item-group color="primary">
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>{{'{{radioGroup}}'}}</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                </v-list-item-group>
+                                <v-subheader style="background-color: cornflowerblue;color: #FFF; font-weight: 900;">3. 取引の方法</v-subheader>
+                                <v-list-item-group color="primary">
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>{{'{{cashfutures_text}}'}}</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                </v-list-item-group>
+                                <v-subheader style="background-color: cornflowerblue;color: #FFF; font-weight: 900;">4. 銘柄選択</v-subheader>
+                                <v-list-item-group color="primary" v-for="(item, index) in brandSearch">
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>{{'{{item.name}}'}}</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>現在値　{{'{{item.now}}'}} ({{'{{item.datetime}}'}})</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>前日比　{{'{{item.previousDay}}'}}</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                </v-list-item-group>
+                                <v-subheader style="background-color: cornflowerblue;color: #FFF; font-weight: 900;">5. 注文条件</v-subheader>
+                                <v-list-item-group color="primary" v-for="(item, index) in brandSearch">
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>注文数量　{{'{{stockNum}}'}}株</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>価格　{{'{{radioPrice}}'}}</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>期間　{{'{{term}}'}}</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                  <v-list-item
+                                  dense
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title>口座　{{'{{account}}'}}</v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                </v-list-item-group>
                               </v-list>
+                              </v-card>
+                            </v-col>
                             </v-col>
                           </v-col>
                         <div style="text-align: center;">
                         <v-btn
-                          @click="e1 = 7"
                           color="info"
                         >
-                          次へ
+                          取引実行
                         </v-btn>
                         <v-btn
                         @click="e1 = 5"
@@ -760,103 +887,10 @@
                         </div>
                       </v-stepper-content>
 
-                      <v-stepper-content step="7">
-                        <div style="margin-bottom: 20px;">
-                          <v-col cols="12" style="margin: 0 auto;vertical-align: top;">
-
-                            <v-col cols="8" style="margin: 0 auto;">
-                              <h5 style="text-align: center;">取引内容をご確認ください</h5>
-
-                              <v-list
-                              v-for="(item, index) in brandSearch"
-                              >
-                                <v-list-item
-                                v-for="(val, key) in item"
-                                v-if="key=='name' || key=='now' || key=='previousDay'"
-                                >
-                                <v-list-item-content width="120">
-                                  <v-list-item-title v-text="enjadic[key]"></v-list-item-title>
-                                </v-list-item-content>
-                                  <v-list-item-content>
-                                    <v-list-item-title v-text="val"></v-list-item-title>
-                                  </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                <v-list-item-content width="120">
-                                  <v-list-item-title v-text="'注文内容'"></v-list-item-title>
-                                </v-list-item-content>
-                                  <v-list-item-content>
-                                    <v-list-item-title v-text="radioGroup"></v-list-item-title>
-                                  </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                  <v-list-item-content width="120">
-                                    <v-list-item-title v-text="'注文数量'"></v-list-item-title>
-                                  </v-list-item-content>
-                                    <v-list-item-content>
-                                      <v-list-item-title v-text="stockNum + '株'"></v-list-item-title>
-                                    </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                  <v-list-item-content width="120">
-                                    <v-list-item-title v-text="'価格'"></v-list-item-title>
-                                  </v-list-item-content>
-                                    <v-list-item-content>
-                                      <v-list-item-title>{{'{{radioPrice}}'}}<div v-if="radioPrice=='指値'">{{'{{stockPrice}}'}}円</div></v-list-item-title>
-                                    </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                  <v-list-item-content width="120">
-                                    <v-list-item-title v-text="'期間'"></v-list-item-title>
-                                  </v-list-item-content>
-                                    <v-list-item-content>
-                                      <v-list-item-title>{{'{{term}}'}}<div v-if="term=='期間指定'">{{'{{datetime}}'}}</div></v-list-item-title>
-                                    </v-list-item-content>
-                                </v-list-item>
-                                <v-list-item>
-                                  <v-list-item-content width="120">
-                                    <v-list-item-title v-text="'口座'"></v-list-item-title>
-                                  </v-list-item-content>
-                                    <v-list-item-content>
-                                      <v-list-item-title>{{'{{account}}'}}</v-list-item-title>
-                                    </v-list-item-content>
-                                </v-list-item>
-                              </v-list>
-                            </v-col>
-                          </v-col>
-                        <div style="text-align: center;">
-                        <v-btn
-                        @click="e1 = 6"
-                      >
-                        戻る
-                      </v-btn>
-                        </div>
-                        <v-container class="px-0" fluid>
-                        <v-checkbox
-                          v-model="checkbox1"
-                          label="インサイダー取引及び契約締結前交付書面の確認"
-                        ></v-checkbox>
-                        <v-checkbox
-                        v-model="checkbox2"
-                        label="SOR対象銘柄の説明済"
-                      ></v-checkbox>
-                      </v-container>
-                      <div style="text-align: center;">
-                        <v-btn
-                        v-if="checkbox1==true && checkbox2==true"
-                        large="true"
-                        color="info"
-                        >
-                        取引申し込み
-                      </v-btn>
-                        </div>
-                        </div>
-                      </v-stepper-content>
-
                     </v-stepper-items>
                   </v-stepper>
                 </v-col>
-                <v-col md="4" sm="12" xs="12">
+                <v-col v-if="e1!=6" md="4" sm="12" xs="12">
                     <v-card
                     tile
                   >
@@ -867,28 +901,28 @@
                       dense
                       >
                         <v-list-item-content>
-                          <v-list-item-title>氏名：山田太郎</v-list-item-title>
+                          <v-list-item-title>氏名： {{'{{cusValue.customerName}}'}}</v-list-item-title>
                         </v-list-item-content>
                       </v-list-item>
                       <v-list-item
                       dense
                       >
                         <v-list-item-content>
-                          <v-list-item-title>顧客番号：1234567</v-list-item-title>
+                          <v-list-item-title>顧客番号： {{'{{cusValue.code}}'}}</v-list-item-title>
                         </v-list-item-content>
                       </v-list-item>
                       <v-list-item
                       dense
                       >
                         <v-list-item-content>
-                          <v-list-item-title>年齢：40</v-list-item-title>
+                          <v-list-item-title>年齢： {{'{{cusValue.age}}'}}</v-list-item-title>
                         </v-list-item-content>
                       </v-list-item>
                       <v-list-item
                       dense
                       >
                         <v-list-item-content>
-                          <v-list-item-title>資産合計：10,000,000円</v-list-item-title>
+                          <v-list-item-title>資産合計： {{'{{cusValue.assetsInCustody}}'}}円</v-list-item-title>
                         </v-list-item-content>
                       </v-list-item>
                     </v-list-item-group>
@@ -1100,7 +1134,7 @@
       sellbuy: ['買い', '売り'],
       order: '',
       cashfutures: ['現物取引', '先物取引'],
-      cashfutures_text: '',
+      cashfutures_text: null,
       singleSelect:true,
       stockNum: 0,
       stockPrice: 0,
@@ -1184,6 +1218,7 @@
         },
       ],
       value: "",
+      cusValue: {},
       type: "text",
       placeholder: "例）トヨタ自動車(7203)",
       enjadic:{
@@ -1264,7 +1299,205 @@
           comeOutHigh: 100000,
           salesPrice: 100000},
       ],
+      custom_datalist:[
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00001',
+        customerName: '林　真斗',
+        age: '47歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00002',
+        customerName: '金田　一',
+        age: '54歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00003',
+        customerName: '河合　秀一',
+        age: '33歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00004',
+        customerName: '吉良　輝',
+        age: '61歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00005',
+        customerName: '田丸　相太',
+        age: '41歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00006',
+        customerName: '小森　一多',
+        age: '30歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00007',
+        customerName: '松田　太郎',
+        age: '50歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00008',
+        customerName: '雨田 望',
+        age: '48歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00009',
+        customerName: '吉高　昭雄',
+        age: '39歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00010',
+        customerName: '倖田　潤',
+        age: '49歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00011',
+        customerName: '黄　色',
+        age: '44歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00012',
+        customerName: '半沢　直人',
+        age: '44歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00013',
+        customerName: '香川　照之',
+        age: '47歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+      ],
       search: '',
+      custom_search: '',
       headers: [
       { text: '選択', value: 'select' },
         { text: '銘柄', value: 'name' },
@@ -1278,6 +1511,23 @@
         { text: '前日終値', value: 'endPrice' },
         { text: '出来高', value: 'comeOutHigh' },
         { text: '売買代金', value: 'salesPrice' },
+      ],
+      custom_headers: [
+        { text: '選択', value: 'select' },
+        { text: 'IFA法人', value: 'ifaCompany' },
+        { text: '営業所', value: 'salesD' },
+        { text: 'IFA', value: 'ifa' },
+        { text: '部店', value: 'division' },
+        { text: '顧客コード', value: 'code' },
+        { text: '顧客名', value: 'customerName' },
+        { text: '年齢', value: 'age' },
+        { text: '預り資産[円]', value: 'assetsInCustody' },
+        { text: '評価損益[円]', value: 'valuatioGains' },
+        { text: '売買件数累計[件]', value: 'totalNumberTransactions' },
+        { text: '実現損益累計[円]', value: 'accumulatedRealizedGains' },
+        { text: '手数料累計[円]', value: 'cumulativeFees' },
+        { text: '約定代金累計[円]', value: 'accumulationContractualPayments' },
+        { text: '詳細', value: 'detail' },
       ],
     },
     computed: {
@@ -1303,11 +1553,17 @@
         const dragList = this.lists.find(list => list.id == dragId)
         dragList.category = dropCategory
       },
-      pickerClosed() {
+    pickerClosed() {
       if(this.datetime){
         this.datetime = moment(this.datetime).format('YYYY/MM/DD');
       }
     },
+    changeValue(item) {
+        this.value = item.name;
+    },
+    changeCusValue(item) {
+        this.cusValue = item;
+    }
     },
     created() {
     },

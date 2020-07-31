@@ -34,6 +34,11 @@
     Author: TemplateMag.com
     License: https://templatemag.com/license/
   ======================================================= -->
+  <style>
+  .v-data-table__wrapper {
+    color: rgb(99, 99, 99);
+  }
+  </style>  
 </head>
 
 <body>
@@ -236,6 +241,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
+          <li style="color: silver;line-height:60px; margin-right:20px;">社員番号：0000001　田中 太郎</li>
           <li><a class="logout" href="logout">Logout</a></li>
         </ul>
       </div>
@@ -249,8 +255,6 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="static/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Yosuke Matsuzaki</h5>
           <li>
             <a href="index.html">
               <i class="fa fa-dashboard"></i>
@@ -299,108 +303,6 @@
               <span>FAQ</span>
               </a>
           </li>
-          <!--<li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
-              </a>
-            <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-              <li><a href="font_awesome.html">Font Awesome</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Components</span>
-              </a>
-            <ul class="sub">
-              <li><a href="grids.html">Grids</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="todo_list.html">Todo List</a></li>
-              <li><a href="dropzone.html">Dropzone File Upload</a></li>
-              <li><a href="inline_editor.html">Inline Editor</a></li>
-              <li><a href="file_upload.html">Multiple File Upload</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-book"></i>
-              <span>Extra Pages</span>
-              </a>
-            <ul class="sub">
-              <li><a href="blank.html">Blank Page</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="lock_screen.html">Lock Screen</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li><a href="invoice.html">Invoice</a></li>
-              <li><a href="pricing_table.html">Pricing Table</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="404.html">404 Error</a></li>
-              <li><a href="500.html">500 Error</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Forms</span>
-              </a>
-            <ul class="sub">
-              <li><a href="form_component.html">Form Components</a></li>
-              <li><a href="advanced_form_components.html">Advanced Components</a></li>
-              <li><a href="form_validation.html">Form Validation</a></li>
-              <li><a href="contactform.html">Contact Form</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-th"></i>
-              <span>Data Tables</span>
-              </a>
-            <ul class="sub">
-              <li><a href="basic_table.html">Basic Table</a></li>
-              <li><a href="responsive_table.html">Responsive Table</a></li>
-              <li><a href="advanced_table.html">Advanced Table</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="inbox.html">
-              <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              <span class="label label-theme pull-right mail-info">2</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class=" fa fa-bar-chart-o"></i>
-              <span>Charts</span>
-              </a>
-            <ul class="sub">
-              <li><a href="morris.html">Morris</a></li>
-              <li><a href="chartjs.html">Chartjs</a></li>
-              <li><a href="flot_chart.html">Flot Charts</a></li>
-              <li><a href="xchart.html">xChart</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-comments-o"></i>
-              <span>Chat Room</span>
-              </a>
-            <ul class="sub">
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="chat_room.html"> Chat Room</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="google_maps.html">
-              <i class="fa fa-map-marker"></i>
-              <span>Google Maps </span>
-              </a>
-          </li>-->
         </ul>
         <!-- sidebar menu end-->
       </div>
@@ -416,11 +318,27 @@
           <div class="col-lg-12 main-chart">
             <!--CUSTOM ORIGINAL START-->
             <div id="app" class="container">
-              <v-client-table name="User" ref="table" :data="tableData" :columns="columns" :options="options"/>
-                <a slot="select" slot-scope="props" href="/profile.html">
-                  選択
-                </a>
-              </v-client-table>
+              <v-card>
+                <v-card-title>
+                  <v-text-field
+                    v-model="custom_search"
+                    label="Search"
+                    single-line
+                    hide-details
+                  ></v-text-field>
+                </v-card-title>
+                <v-data-table
+                  :headers="custom_headers"
+                  :items="custom_datalist"
+                  :search="custom_search"
+                >
+                <template v-slot:item.detail="{{'{ item }'}}">
+                  <v-btn small class="mx-1" style="background-color: red; color: #FFF;">
+                    詳細
+                  </v-btn>
+                </template>
+              </v-data-table>
+              </v-card>
             </div>
 
             <!--CUSTOM ORIGINAL END-->
@@ -501,38 +419,221 @@
     el: "#app",
     vuetify: new Vuetify(),
     data: {
-      columns: [
-        'select', 
-        'customer_num', 
-        'branch', 
-        'person', 
-        'customer_name', 
-        'asset_balance', 
-        'email', 
-        'tel', 
-        'fee', 
-        'last_contact'
-      ],
-      tableData: [
-      ],
-      options:{
-        pagination: { chunk:10 },
-        perPage: 20,
-        showChildRowToggler:true,
-        perPageValues: [],
-        headings: {
-          select: '選択',
-          customer_num: '顧客番号',
-          branch: '支店名',
-          person: '担当者名',
-          customer_name: '顧客名',
-          asset_balance: '資産残高',
-          email: 'Email',
-          tel: 'TEL',
-          fee: '手数料',
-          last_contact: '前回コンタクト'
+      cusValue: {},
+      custom_datalist:[
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00001',
+        customerName: '林　真斗',
+        age: '47歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
         },
-      },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00002',
+        customerName: '金田　一',
+        age: '54歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00003',
+        customerName: '河合　秀一',
+        age: '33歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00004',
+        customerName: '吉良　輝',
+        age: '61歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00005',
+        customerName: '田丸　相太',
+        age: '41歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00006',
+        customerName: '小森　一多',
+        age: '30歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00007',
+        customerName: '松田　太郎',
+        age: '50歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00008',
+        customerName: '雨田 望',
+        age: '48歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00009',
+        customerName: '吉高　昭雄',
+        age: '39歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00010',
+        customerName: '倖田　潤',
+        age: '49歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00011',
+        customerName: '黄　色',
+        age: '44歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00012',
+        customerName: '半沢　直人',
+        age: '44歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+        {
+        ifaCompany: '077',
+        salesD: '001',
+        ifa: '000',
+        division: '704',
+        code: '00013',
+        customerName: '香川　照之',
+        age: '47歳',
+        assetsInCustody: 329087,
+        valuatioGains:23456,
+        totalNumberTransactions: 2,
+        accumulatedRealizedGains: 124234,
+        cumulativeFees: 100000 ,
+        accumulationContractualPayments: 0 
+        },
+      ],
+      custom_search: '',
+      custom_headers: [
+        { text: 'IFA法人', value: 'ifaCompany' },
+        { text: '営業所', value: 'salesD' },
+        { text: 'IFA', value: 'ifa' },
+        { text: '部店', value: 'division' },
+        { text: '顧客コード', value: 'code' },
+        { text: '顧客名', value: 'customerName' },
+        { text: '年齢', value: 'age' },
+        { text: '預り資産[円]', value: 'assetsInCustody' },
+        { text: '評価損益[円]', value: 'valuatioGains' },
+        { text: '売買件数累計[件]', value: 'totalNumberTransactions' },
+        { text: '実現損益累計[円]', value: 'accumulatedRealizedGains' },
+        { text: '手数料累計[円]', value: 'cumulativeFees' },
+        { text: '約定代金累計[円]', value: 'accumulationContractualPayments' },
+        { text: '詳細', value: 'detail' },
+      ],
     },
     computed: {
     },
