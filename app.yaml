@@ -1,0 +1,11 @@
+runtime: python37
+env: standard
+service: default
+entrypoint: gunicorn -b :$PORT main:app
+
+basic_scaling:
+  max_instances: 11
+  idle_timeout: 10m
+
+env_variables:
+  PROJECT: "test"

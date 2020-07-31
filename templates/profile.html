@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>Search</title>
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/css/style-responsive.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Template Name: Dashio
+    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+      <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+      </div>
+      <!--logo start-->
+      <a href="index.html" class="logo"><b><span>S</span>earch</b></a>
+      <!--logo end-->
+      <div class="nav notify-row" id="top_menu">
+        <!--  notification start -->
+        <ul class="nav top-menu">
+          <!-- settings start -->
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+              <i class="fa fa-tasks"></i>
+              <span class="badge bg-theme">4</span>
+              </a>
+            <ul class="dropdown-menu extended tasks-bar">
+              <div class="notify-arrow notify-arrow-green"></div>
+              <li>
+                <p class="green">You have 4 pending tasks</p>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Dashio Admin Panel</div>
+                    <div class="percent">40%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                      <span class="sr-only">40% Complete (success)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Database Update</div>
+                    <div class="percent">60%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                      <span class="sr-only">60% Complete (warning)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Product Development</div>
+                    <div class="percent">80%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                      <span class="sr-only">80% Complete</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Payments Sent</div>
+                    <div class="percent">70%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                      <span class="sr-only">70% Complete (Important)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="external">
+                <a href="#">See All Tasks</a>
+              </li>
+            </ul>
+          </li>
+          <!-- settings end -->
+          <!-- inbox dropdown start-->
+          <li id="header_inbox_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+              <i class="fa fa-envelope-o"></i>
+              <span class="badge bg-theme">5</span>
+              </a>
+            <ul class="dropdown-menu extended inbox">
+              <div class="notify-arrow notify-arrow-green"></div>
+              <li>
+                <p class="green">You have 5 new messages</p>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-zac.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Zac Snider</span>
+                  <span class="time">Just now</span>
+                  </span>
+                  <span class="message">
+                  Hi mate, how is everything?
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-divya.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Divya Manian</span>
+                  <span class="time">40 mins.</span>
+                  </span>
+                  <span class="message">
+                  Hi, I need your help with this.
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-danro.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Dan Rogers</span>
+                  <span class="time">2 hrs.</span>
+                  </span>
+                  <span class="message">
+                  Love your new Dashboard.
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-sherman.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Dj Sherman</span>
+                  <span class="time">4 hrs.</span>
+                  </span>
+                  <span class="message">
+                  Please, answer asap.
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">See all messages</a>
+              </li>
+            </ul>
+          </li>
+          <!-- inbox dropdown end -->
+          <!-- notification dropdown start-->
+          <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+              <i class="fa fa-bell-o"></i>
+              <span class="badge bg-warning">7</span>
+              </a>
+            <ul class="dropdown-menu extended notification">
+              <div class="notify-arrow notify-arrow-yellow"></div>
+              <li>
+                <p class="yellow">You have 7 new notifications</p>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                  Server Overloaded.
+                  <span class="small italic">4 mins.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-warning"><i class="fa fa-bell"></i></span>
+                  Memory #2 Not Responding.
+                  <span class="small italic">30 mins.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                  Disk Space Reached 85%.
+                  <span class="small italic">2 hrs.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-success"><i class="fa fa-plus"></i></span>
+                  New User Registered.
+                  <span class="small italic">3 hrs.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">See all notifications</a>
+              </li>
+            </ul>
+          </li>
+          <!-- notification dropdown end -->
+        </ul>
+        <!--  notification end -->
+      </div>
+      <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+          <li><a class="logout" href="logout">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+    <!--header end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="static/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <h5 class="centered">Yosuke Matsuzaki</h5>
+          <li>
+            <a href="index.html">
+              <i class="fa fa-dashboard"></i>
+              <span>ダッシュボード</span>
+              </a>
+          </li>
+          <li>
+            <a class="active" href="customer.html">
+              <i class="fa fa-user"></i>
+              <span>顧客情報</span>
+              </a>
+          </li>
+          <li>
+            <a href="transaction.html">
+              <i class="fa fa-cny"></i>
+              <span>取引</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-line-chart"></i>
+              <span>マーケット情報</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-bar-chart"></i>
+              <span>営業支援ツール</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-unlock-alt"></i>
+              <span>コンプライアンス</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-long-arrow-up"></i>
+              <span>自社情報登録</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-question"></i>
+              <span>FAQ</span>
+              </a>
+          </li>
+          <!--<li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>UI Elements</span>
+              </a>
+            <ul class="sub">
+              <li><a href="general.html">General</a></li>
+              <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="panels.html">Panels</a></li>
+              <li><a href="font_awesome.html">Font Awesome</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-cogs"></i>
+              <span>Components</span>
+              </a>
+            <ul class="sub">
+              <li><a href="grids.html">Grids</a></li>
+              <li><a href="calendar.html">Calendar</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="todo_list.html">Todo List</a></li>
+              <li><a href="dropzone.html">Dropzone File Upload</a></li>
+              <li><a href="inline_editor.html">Inline Editor</a></li>
+              <li><a href="file_upload.html">Multiple File Upload</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-book"></i>
+              <span>Extra Pages</span>
+              </a>
+            <ul class="sub">
+              <li><a href="blank.html">Blank Page</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="lock_screen.html">Lock Screen</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="invoice.html">Invoice</a></li>
+              <li><a href="pricing_table.html">Pricing Table</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="404.html">404 Error</a></li>
+              <li><a href="500.html">500 Error</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>Forms</span>
+              </a>
+            <ul class="sub">
+              <li><a href="form_component.html">Form Components</a></li>
+              <li><a href="advanced_form_components.html">Advanced Components</a></li>
+              <li><a href="form_validation.html">Form Validation</a></li>
+              <li><a href="contactform.html">Contact Form</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-th"></i>
+              <span>Data Tables</span>
+              </a>
+            <ul class="sub">
+              <li><a href="basic_table.html">Basic Table</a></li>
+              <li><a href="responsive_table.html">Responsive Table</a></li>
+              <li><a href="advanced_table.html">Advanced Table</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="inbox.html">
+              <i class="fa fa-envelope"></i>
+              <span>Mail </span>
+              <span class="label label-theme pull-right mail-info">2</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class=" fa fa-bar-chart-o"></i>
+              <span>Charts</span>
+              </a>
+            <ul class="sub">
+              <li><a href="morris.html">Morris</a></li>
+              <li><a href="chartjs.html">Chartjs</a></li>
+              <li><a href="flot_chart.html">Flot Charts</a></li>
+              <li><a href="xchart.html">xChart</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-comments-o"></i>
+              <span>Chat Room</span>
+              </a>
+            <ul class="sub">
+              <li><a href="lobby.html">Lobby</a></li>
+              <li><a href="chat_room.html"> Chat Room</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="google_maps.html">
+              <i class="fa fa-map-marker"></i>
+              <span>Google Maps </span>
+              </a>
+          </li>-->
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper site-min-height">
+        <div class="row mt">
+          <div class="col-lg-12">
+            <div id="app" class="container">
+            <div class="row content-panel">
+              <div class="col-md-4">
+              <div class="col-md-12 profile-text">
+                <p><img style=" width: 130px;
+                  height: 130px;
+                  border-radius: 50%;
+                  -webkit-border-radius: 50%;
+                  border: 10px solid #f1f2f7;
+                  margin-top: 20px;" src="static/img/ui-zac.jpg" class="img-circle"></p>
+                <h3>山田 太郎</h3>
+                <v-list>
+                  <v-list-item v-for="(val, key) in columns">
+                  <v-list-item-content width="120">
+                    <v-list-item-title v-text="val"></v-list-item-title>
+                  </v-list-item-content>
+            
+                    <v-list-item-content width="120">
+                      <v-list-item-title v-text="profile[key]"></v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+                <br>
+                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
+              </div>
+              </div>
+              <div class="col-md-8">
+              <div class="panel-heading">
+                <ul class="nav nav-tabs nav-justified">
+                  <li class="active">
+                    <a data-toggle="tab" href="#overview">行動履歴</a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" href="#contact" class="contact-map">コンタクト</a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" href="#edit">プロフィール編集</a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /panel-heading -->
+              <div class="panel-body">
+                <div class="tab-content">
+                  <div id="overview" class="tab-pane active">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <textarea v-model="activity" rows="3" class="form-control" placeholder="履歴を追加しますか？"></textarea>
+                        <div class="grey-style">
+                          <div class="pull-left">
+                          </div>
+                          <div class="pull-right">
+                            <button @click="activityPost" class="btn btn-sm btn-theme03">POST</button>
+                          </div>
+                        </div>
+                        <div class="detailed mt">
+                          <h4>行動履歴</h4>
+                          <div class="recent-activity">
+                            <div v-for="val in posts">
+                            <div class="activity-icon bg-theme"><i class="fa fa-check"></i></div>
+                            <div class="activity-panel">
+                              <h5>{{'{{val.day}}'}}</h5>
+                              <p>{{'{{val.activity}}'}}</p>
+                            </div>
+                            </div>
+                          </div>
+                          <!-- /recent-activity -->
+                        </div>
+                        <!-- /detailed -->
+                      </div>
+                      <!-- /col-md-6 -->
+                      <!-- /col-md-6 -->
+                    </div>
+                    <!-- /OVERVIEW -->
+                  </div>
+                  <!-- /tab-pane -->
+                  <div id="contact" class="tab-pane">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div id="map"></div>
+                      </div>
+                      <!-- /col-md-6 -->
+                      <div class="col-md-6 detailed">
+                        <h4>企業情報</h4>
+                        <div class="col-md-8 col-md-offset-2 mt">
+                          <p>
+                            〒103-0025<br>東京都中央区日本橋茅場町１丁目８−１
+                          </p>
+                          <br>
+                          <p>
+                            株式会社Good Moneyger（グッドマネージャー）
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 mt">
+                          <p>
+                            免許・認可・加入協会<br>
+                            金融商品仲介業　関東財務局長(金仲）第786号
+                          <br>
+                          <p>
+                            所属金融商品取引業者等<br>
+楽天証券株式会社／金融商品取引業者 関東財務局長（金商）第195号商品先物取引業者（加入協会：日本証券業協会、一般社団法人金融先物取引業協会、日本商品先物取引協会、一般社団法人第二種金融商品取引業協会、一般社団法人日本投資顧問業協会）
+                          </p>
+                          </p>
+                        </div>
+                      </div>
+                      <!-- /col-md-6 -->
+                    </div>
+                    <!-- /row -->
+                  </div>
+                  <!-- /tab-pane -->
+                  <div id="edit" class="tab-pane">
+                    <div class="row">
+                      <div class="col-lg-8 col-lg-offset-2 detailed">
+                        <h4 class="mb">Personal Information</h4>
+                        <form role="form" class="form-horizontal">
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label"> Avatar</label>
+                            <div class="col-lg-6">
+                              <input type="file" id="exampleInputFile" class="file-pos">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Company</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="c-name" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Lives In</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="lives-in" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Country</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="country" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Description</label>
+                            <div class="col-lg-10">
+                              <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="col-lg-8 col-lg-offset-2 detailed mt">
+                        <h4 class="mb">Contact Information</h4>
+                        <form role="form" class="form-horizontal">
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Address 1</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="addr1" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Address 2</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="addr2" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Phone</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="phone" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Cell</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="cell" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Email</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="email" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Skype</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="skype" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                              <button class="btn btn-theme" type="submit">Save</button>
+                              <button class="btn btn-theme04" type="button">Cancel</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <!-- /col-lg-8 -->
+                    </div>
+                    <!-- /row -->
+                  </div>
+                  <!-- /tab-pane -->
+                </div>
+                <!-- /tab-content -->
+              </div>
+              <!-- /panel-body -->
+              </div>
+              </div>
+            <!-- /col-lg-12 -->
+          </div>
+          </div>
+          <!-- /row -->
+        </div>
+        <!-- /container -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+
+    <!--footer end-->
+  </section>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="static/lib/jquery/jquery.min.js"></script>
+  <script src="static/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="static/lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="static/lib/jquery.scrollTo.min.js"></script>
+  <script src="static/lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <!--common script for all pages-->
+  <script src="static/lib/common-scripts.js"></script>
+  <!--script for this page-->
+  <!-- MAP SCRIPT - ALL CONFIGURATION IS PLACED HERE - VIEW OUR DOCUMENTATION FOR FURTHER INFORMATION -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+  <script>
+    $('.contact-map').click(function() {
+
+      //google map in tab click initialize
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(40.6700, -73.9400);
+        var mapOptions = {
+          zoom: 11,
+          scrollwheel: false,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Dashio Admin Theme!'
+        });
+      }
+      google.maps.event.addDomListener(window, 'click', initialize);
+    });
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/vue-number-input-spinner@2.2.0/dist/vue-number-input-spinner.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuejs-datepicker@1.6.2/dist/locale/translations/ja.js"></script>
+    <script src="https://unpkg.com/vuejs-datepicker"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" defer></script>
+    <script>
+    const app = new Vue({
+      el: "#app",
+      vuetify: new Vuetify(),
+      data: {
+        activity: '',
+        profile: {
+          person: '松崎 洋介',
+          customer_name: '山田 太郎',
+          address: '東京都中央区xxxxxxxx',
+          tel: '090-0000-0000',
+          email: 'test@test.com',
+          status: '口座開設済み',
+          make: '2020年7月1日'
+        },
+        columns: {
+          person: '担当',
+          customer_name: '氏名',
+          address: '住所',
+          tel: 'TEL',
+          email: 'Email',
+          status: 'ステータス',
+          make: 'アカウント作成日'
+        },
+        posts: [
+          {
+            day: '1日前',
+            activity: '電話連絡により発注意思確認'
+          },
+          {
+            day: '3日前',
+            activity: '先方より連絡。○○株の100株の発注。'
+          },
+          {
+            day: '7日前',
+            activity: '口座開設'
+          },
+        ]
+      },
+      computed: {
+      },
+      methods:{
+        activityPost() {
+          let act = {
+            day: '本日',
+            activity: this.activity
+          }
+          this.posts.unshift(act);
+          this.activity = '';
+        }
+      },
+      created() {
+      },
+    })
+    </script>  
+</body>
+
+</html>

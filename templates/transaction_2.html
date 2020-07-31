@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>Search</title>
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/zabuto_calendar.css">
+  <link rel="stylesheet" type="text/css" href="static/lib/gritter/css/jquery.gritter.css" />
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/css/style-responsive.css" rel="stylesheet">
+  <script src="static/lib/chart-master/Chart.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <!-- =======================================================
+    Template Name: Dashio
+    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+  <style>
+  .v-list-item:nth-child(even) {
+    background-color: rgb(243, 243, 243);
+  }
+  .blue--back {
+    background-color: cornflowerblue;
+  }
+  .v-data-table__wrapper {
+    color: rgb(99, 99, 99);
+  }
+  </style>
+</head>
+
+<body>
+  <section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+      <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+      </div>
+      <!--logo start-->
+      <a href="index.html" class="logo"><b><span>S</span>earch</b></a>
+      <!--logo end-->
+      <div class="nav notify-row" id="top_menu">
+        <!--  notification start -->
+        <ul class="nav top-menu">
+          <!-- settings start -->
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+              <i class="fa fa-tasks"></i>
+              <span class="badge bg-theme">4</span>
+              </a>
+            <ul class="dropdown-menu extended tasks-bar">
+              <div class="notify-arrow notify-arrow-green"></div>
+              <li>
+                <p class="green">You have 4 pending tasks</p>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Dashio Admin Panel</div>
+                    <div class="percent">40%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                      <span class="sr-only">40% Complete (success)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Database Update</div>
+                    <div class="percent">60%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                      <span class="sr-only">60% Complete (warning)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Product Development</div>
+                    <div class="percent">80%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                      <span class="sr-only">80% Complete</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Payments Sent</div>
+                    <div class="percent">70%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                      <span class="sr-only">70% Complete (Important)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="external">
+                <a href="#">See All Tasks</a>
+              </li>
+            </ul>
+          </li>
+          <!-- settings end -->
+          <!-- inbox dropdown start-->
+          <li id="header_inbox_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+              <i class="fa fa-envelope-o"></i>
+              <span class="badge bg-theme">5</span>
+              </a>
+            <ul class="dropdown-menu extended inbox">
+              <div class="notify-arrow notify-arrow-green"></div>
+              <li>
+                <p class="green">You have 5 new messages</p>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-zac.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Zac Snider</span>
+                  <span class="time">Just now</span>
+                  </span>
+                  <span class="message">
+                  Hi mate, how is everything?
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-divya.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Divya Manian</span>
+                  <span class="time">40 mins.</span>
+                  </span>
+                  <span class="message">
+                  Hi, I need your help with this.
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-danro.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Dan Rogers</span>
+                  <span class="time">2 hrs.</span>
+                  </span>
+                  <span class="message">
+                  Love your new Dashboard.
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-sherman.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Dj Sherman</span>
+                  <span class="time">4 hrs.</span>
+                  </span>
+                  <span class="message">
+                  Please, answer asap.
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">See all messages</a>
+              </li>
+            </ul>
+          </li>
+          <!-- inbox dropdown end -->
+          <!-- notification dropdown start-->
+          <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+              <i class="fa fa-bell-o"></i>
+              <span class="badge bg-warning">7</span>
+              </a>
+            <ul class="dropdown-menu extended notification">
+              <div class="notify-arrow notify-arrow-yellow"></div>
+              <li>
+                <p class="yellow">You have 7 new notifications</p>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                  Server Overloaded.
+                  <span class="small italic">4 mins.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-warning"><i class="fa fa-bell"></i></span>
+                  Memory #2 Not Responding.
+                  <span class="small italic">30 mins.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                  Disk Space Reached 85%.
+                  <span class="small italic">2 hrs.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-success"><i class="fa fa-plus"></i></span>
+                  New User Registered.
+                  <span class="small italic">3 hrs.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">See all notifications</a>
+              </li>
+            </ul>
+          </li>
+          <!-- notification dropdown end -->
+        </ul>
+        <!--  notification end -->
+      </div>
+      <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+          <li><a class="logout" href="logout">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+    <!--header end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="static/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <h5 class="centered">Yosuke Matsuzaki</h5>
+          <li>
+            <a href="index.html">
+              <i class="fa fa-dashboard"></i>
+              <span>ダッシュボード</span>
+              </a>
+          </li>
+          <li>
+            <a href="customer.html">
+              <i class="fa fa-user"></i>
+              <span>顧客情報</span>
+              </a>
+          </li>
+          <li>
+            <a class="active" href="transaction.html">
+              <i class="fa fa-cny"></i>
+              <span>取引</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-line-chart"></i>
+              <span>マーケット情報</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-bar-chart"></i>
+              <span>営業支援ツール</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-unlock-alt"></i>
+              <span>コンプライアンス</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-long-arrow-up"></i>
+              <span>自社情報登録</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-question"></i>
+              <span>FAQ</span>
+              </a>
+          </li>
+          <!--<li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>UI Elements</span>
+              </a>
+            <ul class="sub">
+              <li><a href="general.html">General</a></li>
+              <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="panels.html">Panels</a></li>
+              <li><a href="font_awesome.html">Font Awesome</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-cogs"></i>
+              <span>Components</span>
+              </a>
+            <ul class="sub">
+              <li><a href="grids.html">Grids</a></li>
+              <li><a href="calendar.html">Calendar</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="todo_list.html">Todo List</a></li>
+              <li><a href="dropzone.html">Dropzone File Upload</a></li>
+              <li><a href="inline_editor.html">Inline Editor</a></li>
+              <li><a href="file_upload.html">Multiple File Upload</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-book"></i>
+              <span>Extra Pages</span>
+              </a>
+            <ul class="sub">
+              <li><a href="blank.html">Blank Page</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="lock_screen.html">Lock Screen</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="invoice.html">Invoice</a></li>
+              <li><a href="pricing_table.html">Pricing Table</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="404.html">404 Error</a></li>
+              <li><a href="500.html">500 Error</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>Forms</span>
+              </a>
+            <ul class="sub">
+              <li><a href="form_component.html">Form Components</a></li>
+              <li><a href="advanced_form_components.html">Advanced Components</a></li>
+              <li><a href="form_validation.html">Form Validation</a></li>
+              <li><a href="contactform.html">Contact Form</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-th"></i>
+              <span>Data Tables</span>
+              </a>
+            <ul class="sub">
+              <li><a href="basic_table.html">Basic Table</a></li>
+              <li><a href="responsive_table.html">Responsive Table</a></li>
+              <li><a href="advanced_table.html">Advanced Table</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="inbox.html">
+              <i class="fa fa-envelope"></i>
+              <span>Mail </span>
+              <span class="label label-theme pull-right mail-info">2</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class=" fa fa-bar-chart-o"></i>
+              <span>Charts</span>
+              </a>
+            <ul class="sub">
+              <li><a href="morris.html">Morris</a></li>
+              <li><a href="chartjs.html">Chartjs</a></li>
+              <li><a href="flot_chart.html">Flot Charts</a></li>
+              <li><a href="xchart.html">xChart</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-comments-o"></i>
+              <span>Chat Room</span>
+              </a>
+            <ul class="sub">
+              <li><a href="lobby.html">Lobby</a></li>
+              <li><a href="chat_room.html"> Chat Room</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="google_maps.html">
+              <i class="fa fa-map-marker"></i>
+              <span>Google Maps </span>
+              </a>
+          </li>-->
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12 main-chart">
+            <!--CUSTOM ORIGINAL START-->
+            <div id="app" class="container">
+            <v-app>
+            <v-container fluid>
+              <v-row>
+                <v-col md="8" sm="12" xs="12">
+                  <v-stepper 
+                  v-model="e1"
+                  >
+                    <v-stepper-header>
+                      <v-stepper-step :complete="e1 > 1" step="1">顧客選択</v-stepper-step>
+                
+                      <v-divider></v-divider>
+                
+                      <v-stepper-step :complete="e1 > 2" step="2">買い？売り？</v-stepper-step>
+                
+                      <v-divider></v-divider>
+
+                      <v-stepper-step :complete="e1 > 3" step="3">取引の方法</v-stepper-step>
+                
+                      <v-divider></v-divider>
+
+                      <v-stepper-step :complete="e1 > 4" step="4">銘柄選択</v-stepper-step>
+                
+                      <v-divider></v-divider>
+
+                      <v-stepper-step :complete="e1 > 5" step="5">注文条件</v-stepper-step>
+                
+                      <v-divider></v-divider>
+
+                      <v-stepper-step step="6">取引内容確認</v-stepper-step>
+                
+                    </v-stepper-header>
+                
+                    <v-stepper-items>
+                      <v-stepper-content step="1">
+                        <div style="margin-bottom: 20px;">
+                          <v-col cols="8" style="margin: 0 auto;">
+                            <h5>1. 銘柄をお選びください</h5>
+                            <co-autocomplete v-model="value" :type="type" :placeholder="placeholder" :datalist="datalist" />                        
+                          </v-col>
+                          <v-col cols="8" style="margin: 0 auto;">
+                          <v-list
+                          v-for="(item, index) in brandSearch"
+                          >
+                            <v-list-item
+                            v-for="(val, key) in item"
+                            >
+                            <v-list-item-content width="120">
+                              <v-list-item-title v-text="enjadic[key]"></v-list-item-title>
+                            </v-list-item-content>
+                      
+                              <v-list-item-content>
+                                <v-list-item-title v-text="val"></v-list-item-title>
+                              </v-list-item-content>
+                            </v-list-item>
+                          </v-list>
+                        </v-col>
+                        <div style="text-align: center;">
+                        <v-btn
+                          @click="e1 = 2"
+                          color="info"
+                        >
+                          次へ
+                        </v-btn>
+                        </div>
+                        </div>
+                      </v-stepper-content>
+                
+                      <v-stepper-content step="2">
+                        <div style="margin-bottom: 20px;">
+                          <v-col cols="12" style="margin: 0 auto;vertical-align: top;">
+                            
+                            <v-col cols="8" style="margin: 0 auto;">
+                              <h5>2. 買い取引ですか？売り取引ですか？</h5>    
+                              <v-radio-group v-model="radioGroup">
+                                <v-radio
+                                  v-for="n in sellbuy"
+                                  :key="n"
+                                  :label="n"
+                                  :value="n"
+                                  style="display: inline-block;"
+                                ></v-radio>
+                              </v-radio-group>
+                            </v-col>
+                          </v-col>
+                        <div style="text-align: center;">
+                        <v-btn
+                          @click="e1 = 3"
+                          color="info"
+                        >
+                          次へ
+                        </v-btn>
+                        <v-btn
+                        @click="e1 = 1"
+                      >
+                        戻る
+                      </v-btn>
+                        </div>
+                        </div>
+                      </v-stepper-content>
+                
+                      <v-stepper-content step="3">
+                        <div style="margin-bottom: 20px;">
+                          <v-col cols="12" style="margin: 0 auto;vertical-align: top;">
+                            
+                            <v-col cols="8" style="margin: 0 auto;">
+                              <h5>3. 注文数量を入力してください</h5>    
+                              <v-radio-group v-model="cashfutures_text">
+                                <v-radio
+                                  v-for="n in cashfutures"
+                                  :key="n"
+                                  :label="n"
+                                  :value="n"
+                                  style="display: inline-block;"
+                                ></v-radio>
+                              </v-radio-group>
+                            </v-col>
+                          </v-col>
+                        <div style="text-align: center;">
+                        <v-btn
+                          @click="e1 = 4"
+                          color="info"
+                        >
+                          次へ
+                        </v-btn>
+                        <v-btn
+                        @click="e1 = 2"
+                      >
+                        戻る
+                      </v-btn>
+                        </div>
+                        </div>
+                      </v-stepper-content>
+
+                      <v-stepper-content step="4">
+                        <div style="margin-bottom: 20px;">
+                          <v-col cols="12" style="margin: 0 auto;vertical-align: top;">
+
+                            <v-col cols="12" style="margin: 0 auto;">
+                              <h5>4.銘柄を選択してください</h5>
+                              <v-card>
+                                <v-card-title>
+                                  <v-text-field
+                                    v-model="search"
+                                    label="Search"
+                                    single-line
+                                    hide-details
+                                  ></v-text-field>
+                                </v-card-title>
+                                <v-data-table
+                                  :headers="headers"
+                                  :items="datalist"
+                                  :search="search"
+                                >
+                                <template v-slot:item.select="{{'{ item }'}}">
+                                  <v-btn small class="mx-1" style="background-color: cornflowerblue; color: #FFF;">
+                                    詳細
+                                  </v-btn>
+                                </template>
+                              </v-data-table>
+                              </v-card>
+                            </v-col>
+                          </v-col>
+                        <div style="text-align: center;">
+                        <v-btn
+                          @click="e1 = 5"
+                          color="info"
+                        >
+                          次へ
+                        </v-btn>
+                        <v-btn
+                        @click="e1 = 3"
+                      >
+                        戻る
+                      </v-btn>
+                        </div>
+                        </div>
+                      </v-stepper-content>
+
+                      <v-stepper-content step="5">
+                        <div style="margin-bottom: 20px;">
+                          <v-col cols="12" style="margin: 0 auto;vertical-align: top;">
+
+                            <v-col cols="8" style="margin: 0 auto;">
+                              <h5>5. 期間を入力してください</h5>
+
+                              <v-radio-group v-model="term">
+                                <v-radio
+                                  v-for="n in termSelect"
+                                  :key="n"
+                                  :label="n"
+                                  :value="n"
+                                >
+                              </v-radio>
+                              </v-radio-group>
+                              <vuejs-datepicker @closed="pickerClosed" :language="ja" v-if="term=='期間指定'" :format="DatePickerFormat" v-model="datetime"></vuejs-datepicker>
+                              <v-list
+                              v-for="(item, index) in brandSearch"
+                              >
+                                <v-list-item
+                                v-for="(val, key) in item"
+                                v-if="key=='name' || key=='now' || key=='previousDay'"
+                                >
+                                <v-list-item-content width="120">
+                                  <v-list-item-title v-text="enjadic[key]"></v-list-item-title>
+                                </v-list-item-content>
+                                  <v-list-item-content>
+                                    <v-list-item-title v-text="val"></v-list-item-title>
+                                  </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                <v-list-item-content width="120">
+                                  <v-list-item-title v-text="'注文内容'"></v-list-item-title>
+                                </v-list-item-content>
+                                  <v-list-item-content>
+                                    <v-list-item-title v-text="radioGroup"></v-list-item-title>
+                                  </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                  <v-list-item-content width="120">
+                                    <v-list-item-title v-text="'注文数量'"></v-list-item-title>
+                                  </v-list-item-content>
+                                    <v-list-item-content>
+                                      <v-list-item-title v-text="stockNum + '株'"></v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                  <v-list-item-content width="120">
+                                    <v-list-item-title v-text="'価格'"></v-list-item-title>
+                                  </v-list-item-content>
+                                    <v-list-item-content>
+                                      <v-list-item-title>{{'{{radioPrice}}'}}<div v-if="radioPrice=='指値'">{{'{{stockPrice}}'}}円</div></v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                              </v-list>
+                            </v-col>
+                          </v-col>
+                        <div style="text-align: center;">
+                        <v-btn
+                          @click="e1 = 6"
+                          color="info"
+                        >
+                          次へ
+                        </v-btn>
+                        <v-btn
+                        @click="e1 = 4"
+                      >
+                        戻る
+                      </v-btn>
+                        </div>
+                        </div>
+                      </v-stepper-content>
+
+                      <v-stepper-content step="6">
+                        <div style="margin-bottom: 20px;">
+                          <v-col cols="12" style="margin: 0 auto;vertical-align: top;">
+
+                            <v-col cols="8" style="margin: 0 auto;">
+                              <h5>6. 口座を入力してください</h5>
+                              
+                              <v-radio-group v-model="account">
+                                <v-radio
+                                  v-for="n in accountSelect"
+                                  :key="n"
+                                  :label="n"
+                                  :value="n"
+                                >
+                              </v-radio>
+                              </v-radio-group>
+                              <v-list
+                              v-for="(item, index) in brandSearch"
+                              >
+                                <v-list-item
+                                v-for="(val, key) in item"
+                                v-if="key=='name' || key=='now' || key=='previousDay'"
+                                >
+                                <v-list-item-content width="120">
+                                  <v-list-item-title v-text="enjadic[key]"></v-list-item-title>
+                                </v-list-item-content>
+                                  <v-list-item-content>
+                                    <v-list-item-title v-text="val"></v-list-item-title>
+                                  </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                <v-list-item-content width="120">
+                                  <v-list-item-title v-text="'注文内容'"></v-list-item-title>
+                                </v-list-item-content>
+                                  <v-list-item-content>
+                                    <v-list-item-title v-text="radioGroup"></v-list-item-title>
+                                  </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                  <v-list-item-content width="120">
+                                    <v-list-item-title v-text="'注文数量'"></v-list-item-title>
+                                  </v-list-item-content>
+                                    <v-list-item-content>
+                                      <v-list-item-title v-text="stockNum + '株'"></v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                  <v-list-item-content width="120">
+                                    <v-list-item-title v-text="'価格'"></v-list-item-title>
+                                  </v-list-item-content>
+                                    <v-list-item-content>
+                                      <v-list-item-title>{{'{{radioPrice}}'}}<div v-if="radioPrice=='指値'">{{'{{stockPrice}}'}}円</div></v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                  <v-list-item-content width="120">
+                                    <v-list-item-title v-text="'期間'"></v-list-item-title>
+                                  </v-list-item-content>
+                                    <v-list-item-content>
+                                      <v-list-item-title>{{'{{term}}'}}<div v-if="term=='期間指定'">{{'{{datetime}}'}}</div></v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                              </v-list>
+                            </v-col>
+                          </v-col>
+                        <div style="text-align: center;">
+                        <v-btn
+                          @click="e1 = 7"
+                          color="info"
+                        >
+                          次へ
+                        </v-btn>
+                        <v-btn
+                        @click="e1 = 5"
+                      >
+                        戻る
+                      </v-btn>
+                        </div>
+                        </div>
+                      </v-stepper-content>
+
+                      <v-stepper-content step="7">
+                        <div style="margin-bottom: 20px;">
+                          <v-col cols="12" style="margin: 0 auto;vertical-align: top;">
+
+                            <v-col cols="8" style="margin: 0 auto;">
+                              <h5 style="text-align: center;">取引内容をご確認ください</h5>
+
+                              <v-list
+                              v-for="(item, index) in brandSearch"
+                              >
+                                <v-list-item
+                                v-for="(val, key) in item"
+                                v-if="key=='name' || key=='now' || key=='previousDay'"
+                                >
+                                <v-list-item-content width="120">
+                                  <v-list-item-title v-text="enjadic[key]"></v-list-item-title>
+                                </v-list-item-content>
+                                  <v-list-item-content>
+                                    <v-list-item-title v-text="val"></v-list-item-title>
+                                  </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                <v-list-item-content width="120">
+                                  <v-list-item-title v-text="'注文内容'"></v-list-item-title>
+                                </v-list-item-content>
+                                  <v-list-item-content>
+                                    <v-list-item-title v-text="radioGroup"></v-list-item-title>
+                                  </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                  <v-list-item-content width="120">
+                                    <v-list-item-title v-text="'注文数量'"></v-list-item-title>
+                                  </v-list-item-content>
+                                    <v-list-item-content>
+                                      <v-list-item-title v-text="stockNum + '株'"></v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                  <v-list-item-content width="120">
+                                    <v-list-item-title v-text="'価格'"></v-list-item-title>
+                                  </v-list-item-content>
+                                    <v-list-item-content>
+                                      <v-list-item-title>{{'{{radioPrice}}'}}<div v-if="radioPrice=='指値'">{{'{{stockPrice}}'}}円</div></v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                  <v-list-item-content width="120">
+                                    <v-list-item-title v-text="'期間'"></v-list-item-title>
+                                  </v-list-item-content>
+                                    <v-list-item-content>
+                                      <v-list-item-title>{{'{{term}}'}}<div v-if="term=='期間指定'">{{'{{datetime}}'}}</div></v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-list-item>
+                                  <v-list-item-content width="120">
+                                    <v-list-item-title v-text="'口座'"></v-list-item-title>
+                                  </v-list-item-content>
+                                    <v-list-item-content>
+                                      <v-list-item-title>{{'{{account}}'}}</v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                              </v-list>
+                            </v-col>
+                          </v-col>
+                        <div style="text-align: center;">
+                        <v-btn
+                        @click="e1 = 6"
+                      >
+                        戻る
+                      </v-btn>
+                        </div>
+                        <v-container class="px-0" fluid>
+                        <v-checkbox
+                          v-model="checkbox1"
+                          label="インサイダー取引及び契約締結前交付書面の確認"
+                        ></v-checkbox>
+                        <v-checkbox
+                        v-model="checkbox2"
+                        label="SOR対象銘柄の説明済"
+                      ></v-checkbox>
+                      </v-container>
+                      <div style="text-align: center;">
+                        <v-btn
+                        v-if="checkbox1==true && checkbox2==true"
+                        large="true"
+                        color="info"
+                        >
+                        取引申し込み
+                      </v-btn>
+                        </div>
+                        </div>
+                      </v-stepper-content>
+
+                    </v-stepper-items>
+                  </v-stepper>
+                </v-col>
+                <v-col md="4" sm="12" xs="12">
+                    <v-card
+                    tile
+                  >
+                  <v-list disabled>
+                    <v-subheader style="background-color: cornflowerblue;color: #FFF; font-weight: 900;">1. 顧客</v-subheader>
+                    <v-list-item-group color="primary">
+                      <v-list-item
+                      dense
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title>氏名：山田太郎</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item
+                      dense
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title>顧客番号：1234567</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item
+                      dense
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title>年齢：40</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item
+                      dense
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title>資産合計：10,000,000円</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list-item-group>
+                    <v-subheader style="background-color: cornflowerblue;color: #FFF; font-weight: 900;">2. 買い？売り？</v-subheader>
+                    <v-list-item-group color="primary">
+                      <v-list-item
+                      dense
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title>{{'{{radioGroup}}'}}</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list-item-group>
+                    <v-subheader style="background-color: cornflowerblue;color: #FFF; font-weight: 900;">3. 取引の方法</v-subheader>
+                    <v-list-item-group color="primary">
+                      <v-list-item
+                      dense
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title>{{'{{cashfutures_text}}'}}</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list-item-group>
+                    <v-subheader style="background-color: cornflowerblue;color: #FFF; font-weight: 900;">4. 銘柄選択</v-subheader>
+                    <v-list-item-group color="primary" v-for="(item, index) in brandSearch">
+                      <v-list-item
+                      dense
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title>{{'{{item.name}}'}}</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item
+                      dense
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title>現在値　{{'{{item.now}}'}} ({{'{{item.datetime}}'}})</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item
+                      dense
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title>前日比　{{'{{item.previousDay}}'}}</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list-item-group>
+                  </v-list>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-container>
+            </v-app>
+            </div>
+            <!--CUSTOM ORIGINAL END-->
+          </div>
+          <!-- /col-lg-9 END SECTION MIDDLE -->
+          <!-- **********************************************************************************************************************************************************
+              RIGHT SIDEBAR CONTENT
+              *********************************************************************************************************************************************************** -->
+        </div>
+        <!-- /row -->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="static/lib/jquery/jquery.min.js"></script>
+
+  <script src="static/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="static/lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="static/lib/jquery.scrollTo.min.js"></script>
+  <script src="static/lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="static/lib/jquery.sparkline.js"></script>
+  <!--common script for all pages-->
+  <script src="static/lib/common-scripts.js"></script>
+  <script type="text/javascript" src="static/lib/gritter/js/jquery.gritter.js"></script>
+  <script type="text/javascript" src="static/lib/gritter-conf.js"></script>
+  <!--script for this page-->
+  <script src="static/lib/sparkline-chart.js"></script>
+  <script src="static/lib/zabuto_calendar.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var unique_id = $.gritter.add({
+        // (string | mandatory) the heading of the notification
+        title: 'CRMページの表示が新しくなりました',
+        // (string | mandatory) the text inside the notification
+        text: '新しいレイアウトを見て変更点を確認してください',
+        // (string | optional) the image to display on the left
+        //image: 'static/img/ui-sam.jpg',
+        // (bool | optional) if you want it to fade out on its own or just sit there
+        sticky: false,
+        // (int | optional) the time you want it to be alive for before fading out
+        time: 8000,
+        // (string | optional) the class name you want to apply to that specific message
+        class_name: 'my-sticky-class'
+      });
+
+      return false;
+    });
+  </script>
+  <script type="application/javascript">
+    $(document).ready(function() {
+      $("#date-popover").popover({
+        html: true,
+        trigger: "manual"
+      });
+      $("#date-popover").hide();
+      $("#date-popover").click(function(e) {
+        $(this).hide();
+      });
+
+      $("#my-calendar").zabuto_calendar({
+        action: function() {
+          return myDateFunction(this.id, false);
+        },
+        action_nav: function() {
+          return myNavFunction(this.id);
+        },
+        ajax: {
+          url: "show_data.php?action=1",
+          modal: true
+        },
+        legend: [{
+            type: "text",
+            label: "Special event",
+            badge: "00"
+          },
+          {
+            type: "block",
+            label: "Regular event",
+          }
+        ]
+      });
+    });
+
+    function myNavFunction(id) {
+      $("#date-popover").hide();
+      var nav = $("#" + id).data("navigation");
+      var to = $("#" + id).data("to");
+      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/vue-number-input-spinner@2.2.0/dist/vue-number-input-spinner.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuejs-datepicker@1.6.2/dist/locale/translations/ja.js"></script>
+  <script src="https://unpkg.com/vuejs-datepicker"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" defer></script>
+  <script>
+    Vue.component('number-input-spinner', NumberInputSpinner);
+    Vue.component("co-autocomplete", {
+      template: `
+    <div>
+      <input
+        :list="variableId"
+        :type="type"
+        :placeholder="placeholder"
+        :value="value"
+        @input="changeValue"
+        v-on:keyup.enter="keyupEnter"
+      />
+      <datalist :id="variableId">
+        <option
+          v-for="item in filteredList"
+          :key="item.name + variableId"
+          :value="item.name"
+          v-text="item.name"
+          class="datalist-option"
+        ></option>
+      </datalist>
+    </div>
+    `,
+      props: {
+        value: String,
+        type: String,
+        placeholder: String,
+        datalist: Array
+      },
+      data() {
+        const rand = Math.random();
+        return {
+          variableId: rand
+        };
+      },
+      computed: {
+        filteredList: function() {
+          return this.datalist.filter(data => data.name.toLowerCase().indexOf(this.value.toLowerCase()) !== -1 && data.name.toLowerCase() != this.value.toLowerCase());
+        }
+      },
+      methods: {
+        changeValue(text) {
+          this.$emit("input", text.target.value);
+        },
+        keyupEnter() {
+          this.$emit("keyup-enter");
+        }
+      }
+    });
+
+  const app = new Vue({
+    el: "#app",
+    vuetify: new Vuetify(),
+    data: {
+      e1: 1,
+      radioGroup: null,
+      sellbuy: ['買い', '売り'],
+      order: '',
+      cashfutures: ['現物取引', '先物取引'],
+      cashfutures_text: '',
+      singleSelect:true,
+      stockNum: 0,
+      stockPrice: 0,
+      radioPrice: null,
+      radioPriceSelect: ['指値', '成行', '逆指値'],
+      term: null,
+      termSelect: ['当日中', '今週中', '期間指定'],
+      datetime: null,
+      account: null,
+      accountSelect: ['特定', '一般', 'NISA'],
+      message: 'ユーザー設定',
+      ja: vdp_translation_ja.js,
+      DatePickerFormat: 'yyyy-MM-dd',
+      checkbox1: false,
+      checkbox2: false,
+      lists: [
+        {
+          id: 1, 
+          name: 'トヨタ',
+          category: 'A',
+        },
+        {
+          id: 2, 
+          name: 'ひふみ投信',
+          category: 'A',
+        },
+        {
+          id: 3, 
+          name: '劣後債',
+          category: 'A',
+        },
+        {
+          id: 4, 
+          name: 'ロボアド',
+          category: 'A',
+        },
+        {
+          id: 5, 
+          name: '国内株式',
+          category: 'B',
+        },
+        {
+          id: 6, 
+          name: '外国株式',
+          category: 'B',
+        },
+        {
+          id: 7, 
+          name: '投資信託',
+          category: 'B',
+        },
+        {
+          id: 8, 
+          name: '債権',
+          category: 'B',
+        },
+        {
+          id: 9, 
+          name: '先物オプション',
+          category: 'B',
+        },
+        {
+          id: 10, 
+          name: 'CFD eワラント',
+          category: 'B',
+        },
+        {
+          id: 11, 
+          name: '金・銀・プラチナ',
+          category: 'B',
+        },
+        {
+          id: 12, 
+          name: 'NISAツミタテNISA',
+          category: 'B',
+        },
+        {
+          id: 13, 
+          name: 'ロボアド他',
+          category: 'B',
+        },
+      ],
+      value: "",
+      type: "text",
+      placeholder: "例）トヨタ自動車(7203)",
+      enjadic:{
+          name: "銘柄", 
+          num: "証券コード",
+          now: "現在値",
+          datetime: "取得日時",
+          previousDay: "前日比",
+          openingPrice: "始値",
+          highPrice: "高値",
+          lowPrice: "安値",
+          endPrice: "前日終値",
+          comeOutHigh: "出来高",
+          salesPrice: "売買代金"
+      },
+      datalist: [
+        { 
+          name: "トヨタ自動車(7203)", 
+          num: 7203,
+          now: 100,
+          datetime: "2020/7/14 10:30",
+          previousDay: -20,
+          openingPrice: 95,
+          highPrice: 105,
+          lowPrice:90,
+          endPrice: 80,
+          comeOutHigh: 100000,
+          salesPrice: 100000
+        }, 
+        { name: "ホンダ(7267)", num: 7267,
+          now: 100,
+          datetime: "2020/7/14 10:30",
+          previousDay: -20,
+          openingPrice: 95,
+          highPrice: 105,
+          lowPrice:90,
+          endPrice: 80,
+          comeOutHigh: 100000,
+          salesPrice: 100000 }, 
+        { name: "日本郵政(6178)", num: 6178,
+          now: 100,
+          datetime: "2020/7/14 10:30",
+          previousDay: -20,
+          openingPrice: 95,
+          highPrice: 105,
+          lowPrice:90,
+          endPrice: 80,
+          comeOutHigh: 100000,
+          salesPrice: 100000 },
+        { name: "NTT(9432)", num: 9432,
+          now: 100,
+          datetime: "2020/7/14 10:30",
+          previousDay: -20,
+          openingPrice: 95,
+          highPrice: 105,
+          lowPrice:90,
+          endPrice: 80,
+          comeOutHigh: 100000,
+          salesPrice: 100000 }, 
+        { name: "伊藤忠(8001)", num: 8001,
+          now: 100,
+          datetime: "2020/7/14 10:30",
+          previousDay: -20,
+          openingPrice: 95,
+          highPrice: 105,
+          lowPrice:90,
+          endPrice: 80,
+          comeOutHigh: 100000,
+          salesPrice: 100000 }, 
+        { name: "ENEOS(5020)", num: 5020,
+          now: 100,
+          datetime: "2020/7/14 10:30",
+          previousDay: -20,
+          openingPrice: 95,
+          highPrice: 105,
+          lowPrice:90,
+          endPrice: 80,
+          comeOutHigh: 100000,
+          salesPrice: 100000},
+      ],
+      search: '',
+      headers: [
+      { text: '選択', value: 'select' },
+        { text: '銘柄', value: 'name' },
+        { text: '証券コード', value: 'num' },
+        { text: '現在地', value: 'now' },
+        { text: '取得日時', value: 'datetime' },
+        { text: '前日比', value: 'previousDay' },
+        { text: '始値', value: 'openingPrice' },
+        { text: '高値', value: 'highPrice' },
+        { text: '安値', value: 'lowPrice' },
+        { text: '前日終値', value: 'endPrice' },
+        { text: '出来高', value: 'comeOutHigh' },
+        { text: '売買代金', value: 'salesPrice' },
+      ],
+    },
+    computed: {
+      CategoryA () {
+        return this.lists.filter(list => list.category == 'A')
+      },
+      CategoryB () {
+        return this.lists.filter(list => list.category == 'B')
+      },
+      brandSearch(){
+        const result = this.datalist.filter(stock => stock.name == this.value);
+        return result
+      }
+    },
+    methods:{
+      dragList(event, dragId){
+        event.dataTransfer.effectAllowed = 'move'
+        event.dataTransfer.dropEffect = 'move'
+        event.dataTransfer.setData('list-id',dragId)
+      },
+      dropList(event, dropCategory){
+        const dragId = event.dataTransfer.getData('list-id')
+        const dragList = this.lists.find(list => list.id == dragId)
+        dragList.category = dropCategory
+      },
+      pickerClosed() {
+      if(this.datetime){
+        this.datetime = moment(this.datetime).format('YYYY/MM/DD');
+      }
+    },
+    },
+    created() {
+    },
+    components: {
+      'vuejs-datepicker':vuejsDatepicker
+    }
+  })
+  </script>  
+</body>
+
+</html>

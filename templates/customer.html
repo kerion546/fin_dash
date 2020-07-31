@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>Search</title>
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/zabuto_calendar.css">
+  <link rel="stylesheet" type="text/css" href="static/lib/gritter/css/jquery.gritter.css" />
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/css/style-responsive.css" rel="stylesheet">
+  <script src="static/lib/chart-master/Chart.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <!-- =======================================================
+    Template Name: Dashio
+    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+  <section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+      <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+      </div>
+      <!--logo start-->
+      <a href="index.html" class="logo"><b><span>S</span>earch</b></a>
+      <!--logo end-->
+      <div class="nav notify-row" id="top_menu">
+        <!--  notification start -->
+        <ul class="nav top-menu">
+          <!-- settings start -->
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+              <i class="fa fa-tasks"></i>
+              <span class="badge bg-theme">4</span>
+              </a>
+            <ul class="dropdown-menu extended tasks-bar">
+              <div class="notify-arrow notify-arrow-green"></div>
+              <li>
+                <p class="green">You have 4 pending tasks</p>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Dashio Admin Panel</div>
+                    <div class="percent">40%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                      <span class="sr-only">40% Complete (success)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Database Update</div>
+                    <div class="percent">60%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                      <span class="sr-only">60% Complete (warning)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Product Development</div>
+                    <div class="percent">80%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                      <span class="sr-only">80% Complete</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <div class="task-info">
+                    <div class="desc">Payments Sent</div>
+                    <div class="percent">70%</div>
+                  </div>
+                  <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                      <span class="sr-only">70% Complete (Important)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="external">
+                <a href="#">See All Tasks</a>
+              </li>
+            </ul>
+          </li>
+          <!-- settings end -->
+          <!-- inbox dropdown start-->
+          <li id="header_inbox_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+              <i class="fa fa-envelope-o"></i>
+              <span class="badge bg-theme">5</span>
+              </a>
+            <ul class="dropdown-menu extended inbox">
+              <div class="notify-arrow notify-arrow-green"></div>
+              <li>
+                <p class="green">You have 5 new messages</p>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-zac.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Zac Snider</span>
+                  <span class="time">Just now</span>
+                  </span>
+                  <span class="message">
+                  Hi mate, how is everything?
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-divya.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Divya Manian</span>
+                  <span class="time">40 mins.</span>
+                  </span>
+                  <span class="message">
+                  Hi, I need your help with this.
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-danro.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Dan Rogers</span>
+                  <span class="time">2 hrs.</span>
+                  </span>
+                  <span class="message">
+                  Love your new Dashboard.
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="photo"><img alt="avatar" src="static/img/ui-sherman.jpg"></span>
+                  <span class="subject">
+                  <span class="from">Dj Sherman</span>
+                  <span class="time">4 hrs.</span>
+                  </span>
+                  <span class="message">
+                  Please, answer asap.
+                  </span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">See all messages</a>
+              </li>
+            </ul>
+          </li>
+          <!-- inbox dropdown end -->
+          <!-- notification dropdown start-->
+          <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+              <i class="fa fa-bell-o"></i>
+              <span class="badge bg-warning">7</span>
+              </a>
+            <ul class="dropdown-menu extended notification">
+              <div class="notify-arrow notify-arrow-yellow"></div>
+              <li>
+                <p class="yellow">You have 7 new notifications</p>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                  Server Overloaded.
+                  <span class="small italic">4 mins.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-warning"><i class="fa fa-bell"></i></span>
+                  Memory #2 Not Responding.
+                  <span class="small italic">30 mins.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                  Disk Space Reached 85%.
+                  <span class="small italic">2 hrs.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">
+                  <span class="label label-success"><i class="fa fa-plus"></i></span>
+                  New User Registered.
+                  <span class="small italic">3 hrs.</span>
+                  </a>
+              </li>
+              <li>
+                <a href="index.html#">See all notifications</a>
+              </li>
+            </ul>
+          </li>
+          <!-- notification dropdown end -->
+        </ul>
+        <!--  notification end -->
+      </div>
+      <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+          <li><a class="logout" href="logout">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+    <!--header end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="static/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <h5 class="centered">Yosuke Matsuzaki</h5>
+          <li>
+            <a href="index.html">
+              <i class="fa fa-dashboard"></i>
+              <span>ダッシュボード</span>
+              </a>
+          </li>
+          <li>
+            <a class="active" href="customer.html">
+              <i class="fa fa-user"></i>
+              <span>顧客情報</span>
+              </a>
+          </li>
+          <li>
+            <a href="transaction.html">
+              <i class="fa fa-cny"></i>
+              <span>取引</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-line-chart"></i>
+              <span>マーケット情報</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-bar-chart"></i>
+              <span>営業支援ツール</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-unlock-alt"></i>
+              <span>コンプライアンス</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-long-arrow-up"></i>
+              <span>自社情報登録</span>
+              </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-question"></i>
+              <span>FAQ</span>
+              </a>
+          </li>
+          <!--<li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>UI Elements</span>
+              </a>
+            <ul class="sub">
+              <li><a href="general.html">General</a></li>
+              <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="panels.html">Panels</a></li>
+              <li><a href="font_awesome.html">Font Awesome</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-cogs"></i>
+              <span>Components</span>
+              </a>
+            <ul class="sub">
+              <li><a href="grids.html">Grids</a></li>
+              <li><a href="calendar.html">Calendar</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="todo_list.html">Todo List</a></li>
+              <li><a href="dropzone.html">Dropzone File Upload</a></li>
+              <li><a href="inline_editor.html">Inline Editor</a></li>
+              <li><a href="file_upload.html">Multiple File Upload</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-book"></i>
+              <span>Extra Pages</span>
+              </a>
+            <ul class="sub">
+              <li><a href="blank.html">Blank Page</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="lock_screen.html">Lock Screen</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="invoice.html">Invoice</a></li>
+              <li><a href="pricing_table.html">Pricing Table</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="404.html">404 Error</a></li>
+              <li><a href="500.html">500 Error</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>Forms</span>
+              </a>
+            <ul class="sub">
+              <li><a href="form_component.html">Form Components</a></li>
+              <li><a href="advanced_form_components.html">Advanced Components</a></li>
+              <li><a href="form_validation.html">Form Validation</a></li>
+              <li><a href="contactform.html">Contact Form</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-th"></i>
+              <span>Data Tables</span>
+              </a>
+            <ul class="sub">
+              <li><a href="basic_table.html">Basic Table</a></li>
+              <li><a href="responsive_table.html">Responsive Table</a></li>
+              <li><a href="advanced_table.html">Advanced Table</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="inbox.html">
+              <i class="fa fa-envelope"></i>
+              <span>Mail </span>
+              <span class="label label-theme pull-right mail-info">2</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class=" fa fa-bar-chart-o"></i>
+              <span>Charts</span>
+              </a>
+            <ul class="sub">
+              <li><a href="morris.html">Morris</a></li>
+              <li><a href="chartjs.html">Chartjs</a></li>
+              <li><a href="flot_chart.html">Flot Charts</a></li>
+              <li><a href="xchart.html">xChart</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-comments-o"></i>
+              <span>Chat Room</span>
+              </a>
+            <ul class="sub">
+              <li><a href="lobby.html">Lobby</a></li>
+              <li><a href="chat_room.html"> Chat Room</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="google_maps.html">
+              <i class="fa fa-map-marker"></i>
+              <span>Google Maps </span>
+              </a>
+          </li>-->
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12 main-chart">
+            <!--CUSTOM ORIGINAL START-->
+            <div id="app" class="container">
+              <v-client-table name="User" ref="table" :data="tableData" :columns="columns" :options="options"/>
+                <a slot="select" slot-scope="props" href="/profile.html">
+                  選択
+                </a>
+              </v-client-table>
+            </div>
+
+            <!--CUSTOM ORIGINAL END-->
+          </div>
+          <!-- /col-lg-9 END SECTION MIDDLE -->
+        </div>
+        <!-- /row -->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="static/lib/jquery/jquery.min.js"></script>
+
+  <script src="static/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="static/lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="static/lib/jquery.scrollTo.min.js"></script>
+  <script src="static/lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="static/lib/jquery.sparkline.js"></script>
+  <!--common script for all pages-->
+  <script src="static/lib/common-scripts.js"></script>
+  <script type="text/javascript" src="static/lib/gritter/js/jquery.gritter.js"></script>
+  <script type="text/javascript" src="static/lib/gritter-conf.js"></script>
+  <!--script for this page-->
+  <script src="static/lib/sparkline-chart.js"></script>
+  <script src="static/lib/zabuto_calendar.js"></script>
+  <script type="application/javascript">
+    $(document).ready(function() {
+      $("#date-popover").popover({
+        html: true,
+        trigger: "manual"
+      });
+      $("#date-popover").hide();
+      $("#date-popover").click(function(e) {
+        $(this).hide();
+      });
+
+      $("#my-calendar").zabuto_calendar({
+        action: function() {
+          return myDateFunction(this.id, false);
+        },
+        action_nav: function() {
+          return myNavFunction(this.id);
+        },
+        ajax: {
+          url: "show_data.php?action=1",
+          modal: true
+        },
+        legend: [{
+            type: "text",
+            label: "Special event",
+            badge: "00"
+          },
+          {
+            type: "block",
+            label: "Regular event",
+          }
+        ]
+      });
+    });
+    function myNavFunction(id) {
+      $("#date-popover").hide();
+      var nav = $("#" + id).data("navigation");
+      var to = $("#" + id).data("to");
+      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/vue-tables-2@2.0.0/dist/vue-tables-2.min.js"></script>
+  <script>
+  const ClientTable = VueTables.ClientTable
+  const Event = VueTables.Event
+  Vue.use(ClientTable);
+  const app = new Vue({
+    el: "#app",
+    vuetify: new Vuetify(),
+    data: {
+      columns: [
+        'select', 
+        'customer_num', 
+        'branch', 
+        'person', 
+        'customer_name', 
+        'asset_balance', 
+        'email', 
+        'tel', 
+        'fee', 
+        'last_contact'
+      ],
+      tableData: [
+      ],
+      options:{
+        pagination: { chunk:10 },
+        perPage: 20,
+        showChildRowToggler:true,
+        perPageValues: [],
+        headings: {
+          select: '選択',
+          customer_num: '顧客番号',
+          branch: '支店名',
+          person: '担当者名',
+          customer_name: '顧客名',
+          asset_balance: '資産残高',
+          email: 'Email',
+          tel: 'TEL',
+          fee: '手数料',
+          last_contact: '前回コンタクト'
+        },
+      },
+    },
+    computed: {
+    },
+    methods:{
+    },
+    created() {
+      var name = [
+        "長谷川彦太郎",
+        "新川史郎",
+        "水野俊之",
+        "河井実咲",
+        "大浦音々",
+        "高津麻理子",
+        "岡部優芽",
+        "徳永篤彦",
+        "藤田智",
+        "中根美空",
+        "佐川陽保",
+        "香坂千恵子",
+        "吉岡徳男",
+        "宮城正博",
+        "三田浩",
+        "辻夏美",
+        "藤森吉郎",
+        "立花稀樹",
+        "岩渕珠希",
+        "長井千裕",
+        "安田俊光",
+        "福本陽奈",
+        "植田定雄",
+        "田上希実",
+        "河上駿",
+        "土井紗那",
+        "笹原豊",
+        "森下駿",
+        "川辺可憐",
+        "安川梨乃",
+        "藤原美紀子",
+        "森口郁子",
+        "橘愛",
+        "水谷文香",
+        "柿崎真悠",
+        "和田利之",
+        "峰果音",
+        "佐伯隆文",
+        "土居威雄",
+        "生田花恋",
+        "宮地葉月",
+        "塚本立哉",
+        "藤巻愛梨",
+        "菅沼寅吉",
+        "大久保智之",
+        "滝口真結",
+        "岩田徳治",
+        "高尾宣彦",
+        "草野大介",
+        "矢口國吉",
+        "中島正次郎",
+        "中義勝",
+        "渥美智恵",
+        "沖絢子",
+        "長沢孝志",
+        "荻原華凛",
+        "安西清助",
+        "榊原友香",
+        "鬼頭昌枝",
+        "細井千紘",
+        "瀬戸真希",
+        "柳沢博史",
+        "笠原君子",
+        "日高健次郎",
+        "安斎栄子",
+        "黒崎由紀",
+        "上山守友",
+        "野沢一郎",
+        "橋爪諭",
+        "五十嵐美和",
+        "浅井章治郎",
+        "三井裕司",
+        "三輪嘉之",
+        "大矢美香",
+        "遠藤正雄",
+        "坂東結香",
+        "秋田咲季",
+        "小林明宏",
+        "久保輝",
+        "福原今日子",
+        "古河徳康",
+        "児玉真美",
+        "中森孝次",
+        "末永実優",
+        "門田亜矢",
+        "清野雪乃",
+        "松下満喜子",
+        "中塚葉奈",
+        "寺島広史",
+        "中澤真歩",
+        "織田孝義",
+        "浅川晃一",
+        "勝田晃一",
+        "立花紫乃",
+        "滝正子",
+        "川端桜",
+        "桜井樹",
+        "日野紗那",
+        "柳沢行夫",
+        "峰菫"
+      ]
+      for (var i =0; i<100; i++) {
+        var template = {
+          select: '選択',
+          customer_num: '0000',
+          branch: 'つくば支店',
+          person: '松崎洋介',
+          asset_balance: '1000,000,000',
+          email: 'xxxx@test.com',
+          tel: '000-0000-0000',
+          fee: '1,234,567',
+          last_contact: '2020/7/20',
+          link: '/' + String(i+1)
+        }
+        function zeroPadding(NUM, LEN){
+          return ( Array(LEN).join('0') + NUM ).slice( -LEN );
+        }
+        template['customer_num'] = zeroPadding(i+1, 5)
+        template['customer_name'] = name[i]
+        this.tableData.push(template);
+      }
+    }
+  })
+  </script>  
+</body>
+
+</html>
